@@ -1124,7 +1124,7 @@ fetch('/api/submit', {
 
 # hypercms
 
-Live edit-in-place CMS sidebar. Reads a page through a [`hyper-html-api`](https://github.com/panphora/hyper-html-api) rules tag, builds a form from those rules, mounts it as a side panel, and streams edits back into the page DOM in real time.
+Live edit-in-place CMS sidebar. Reads a page through a [`hyper-html-api`](https://github.com/hyperspacesystems/hyper-html-api) rules tag, builds a form from those rules, mounts it as a side panel, and streams edits back into the page DOM in real time.
 
 The CMS only mutates the live DOM. Saving the page (Hyperclay Cmd+S or autosave) is what writes the file. The sidebar (`[data-hcms-shell]`, marked `save-ignore`/`save-remove`, the legacy aliases for `no-trigger-autosave`/`no-save` — see [region attributes](./region-attributes.md)) and the `hcms-open` body class are stripped from the saved output.
 

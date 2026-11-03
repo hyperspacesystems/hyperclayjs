@@ -264,7 +264,7 @@ Requires the `richclay` module (included in the `smooth-sailing` and `everything
 </div>
 ```
 
-Full token reference, options, and custom toolbar buttons: the [richclay README](https://github.com/panphora/richclay#readme). `window.RichClay` / `window.hyperclay.RichClay` expose the class for custom buttons and programmatic use.
+Full token reference, options, and custom toolbar buttons: the [richclay README](https://github.com/hyperspacesystems/richclay#readme). `window.RichClay` / `window.hyperclay.RichClay` expose the class for custom buttons and programmatic use.
 
 ## Module Creation
 
@@ -325,4 +325,4 @@ This project includes the following open-source libraries:
 - [Documentation](https://hyperclay.com/docs)
 - [Examples](https://hyperclay.com/examples)
 - [Configurator](https://hyperclay.com/configurator)
-- [GitHub Issues](https://github.com/panphora/hyperclayjs/issues)
+- [GitHub Issues](https://github.com/hyperspacesystems/hyperclayjs/issues)
