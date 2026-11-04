@@ -20,12 +20,14 @@ jobs:
           node-version: 26
       # This repo does not commit package-lock.json (.gitignore), so use `npm install`
       # (not `npm ci`) and no npm cache. Byte-reproducibility of the goldens is still
-      # guaranteed because `playwright` is exact-pinned in package.json.
+      # guaranteed because the browser is pinned in
+      # scripts/chrome-for-testing/browser-runtime.json.
       - run: npm install
       # Pinned Chromium for the byte-exact conformance goldens. The version is
-      # locked by playwright in package.json, so CI and local produce the same bytes.
+      # locked by scripts/chrome-for-testing/browser-runtime.json, so CI and local
+      # produce the same bytes.
       - name: Install pinned Chromium
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install-deps chromium && npm run browser:install && node scripts/chrome-for-testing/configure-linux-sandbox.cjs
       - name: Unit tests (jest)
         run: npm test
       - name: Conformance byte gate (web-test-runner)

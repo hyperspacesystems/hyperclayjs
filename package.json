@@ -34,6 +34,7 @@
     "build:readme": "node build/generate-readme.js",
     "build:load-jsdelivr": "node build/generate-load-jsdelivr.js",
     "build:index-url": "node build/update-index-url.js",
+    "browser:install": "node scripts/chrome-for-testing/browser-runtime.cjs install",
     "test": "jest",
     "test:conformance": "UPDATE_GOLDENS=0 web-test-runner",
     "conformance:update": "UPDATE_GOLDENS=1 web-test-runner",
@@ -84,7 +85,7 @@
     "jsdom": "^27.2.0",
     "madge": "^8.0.0",
     "open-cli": "^8.0.0",
-    "playwright": "1.62.1",
+    "playwright": "1.64.1",
     "prettier": "^3.0.0",
     "rollup": "^4.0.0"
   },
