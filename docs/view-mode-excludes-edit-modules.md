@@ -70,3 +70,8 @@ When using the `standard` preset:
 - **Development** - you want full functionality regardless of mode
 - **Admin-only pages** - all users are editors anyway
 - **Simple sites** - if you're already using minimal preset, savings are small
+
+## Platform Readiness Contract for Vendored Plugins
+
+- **Ask the platform lifecycle, never namespace truthiness or capability presence:** vendored plugins must wait on `hyperclay.ready` / `hyperclay:ready` (defined in `src/core/exportToWindow.js` and `build/hyperclay.template.js`, which generates `src/hyperclay.js`) or `clay.ready` / `clay:ready`, never `mutation-ready` or a one-shot check at import time. In `hyperclayjs`, `loadModules` imports the rest wave concurrently via `Promise.all`, so flat vendor bundles finish before core modules like `edit-mode` or `beforeSave`; read a capability and, if missing, retry on the `ready` event and promise (and verify `hyper-undo` `on()` returns an unsubscribe function rather than `undefined`).
+- **Preset protection and rollout order:** `view-mode-excludes-edit-modules` is what keeps `richclay` (`EDIT_MODE_ONLY`) out of view mode in standard presets, so hand-rolled `features=` lists without this sentinel bypass that guard, while the `cms` preset intentionally omits `edit-mode`. Always publish the `hyperclayjs` loader before or alongside re-vendoring the `richclay` bundle, because both clients execute vendored bundles.
